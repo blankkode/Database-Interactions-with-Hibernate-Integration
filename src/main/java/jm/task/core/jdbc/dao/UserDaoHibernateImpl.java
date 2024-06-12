@@ -24,6 +24,7 @@ public class UserDaoHibernateImpl implements UserDao {
             transaction.commit();
         } catch (Exception e) {
              e.printStackTrace();
+             System.err.println("Error creating users table: " + e.getMessage());
         }
     }
 
@@ -36,6 +37,7 @@ public class UserDaoHibernateImpl implements UserDao {
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
+            System.err.println("Error drop users table: " + e.getMessage());
         }
     }
 
@@ -48,6 +50,7 @@ public class UserDaoHibernateImpl implements UserDao {
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
+            System.err.println("Error save users table: " + e.getMessage());
         }
     }
 
@@ -62,6 +65,7 @@ public class UserDaoHibernateImpl implements UserDao {
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
+            System.err.println("Error remove by ID users table: " + e.getMessage());
         }
     }
 
@@ -71,6 +75,7 @@ public class UserDaoHibernateImpl implements UserDao {
             return session.createQuery("FROM User", User.class).list();
         } catch (Exception e) {
             e.printStackTrace();
+            System.err.println("Error get all users table: " + e.getMessage());
         }
         return null;
     }
@@ -83,6 +88,7 @@ public class UserDaoHibernateImpl implements UserDao {
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
+            System.err.println("Error clean users table: " + e.getMessage());
         }
     }
 }

@@ -22,7 +22,8 @@ public class UserDaoJDBCImpl implements UserDao {
              Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
         }catch (Exception e){
-
+            e.printStackTrace();
+            System.err.println("Error create users table: " + e.getMessage());
         }
     }
 
@@ -32,7 +33,8 @@ public class UserDaoJDBCImpl implements UserDao {
              Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
         }catch (Exception e){
-
+            e.printStackTrace();
+            System.err.println("Error drop users table: " + e.getMessage());
         }
     }
 
@@ -46,7 +48,8 @@ public class UserDaoJDBCImpl implements UserDao {
             pstmt.executeUpdate();
             System.out.println("User with name - " + name + " added to the database");
         }catch (Exception e){
-
+            e.printStackTrace();
+            System.err.println("Error save users table: " + e.getMessage());
         }
     }
 
@@ -57,7 +60,8 @@ public class UserDaoJDBCImpl implements UserDao {
             pstmt.setLong(1, id);
             pstmt.executeUpdate();
         }catch (Exception e){
-
+            e.printStackTrace();
+            System.err.println("Error remove users table: " + e.getMessage());
         }
     }
 
@@ -75,7 +79,8 @@ public class UserDaoJDBCImpl implements UserDao {
                 users.add(new User(id ,name, lastName, age));
             }
         }catch (Exception e){
-
+            e.printStackTrace();
+            System.err.println("Error get all users table: " + e.getMessage());
         }
         return users;
     }
@@ -86,7 +91,8 @@ public class UserDaoJDBCImpl implements UserDao {
              Statement stmt = conn.createStatement()) {
             stmt.execute(sql);
         }catch (Exception e){
-
+            e.printStackTrace();
+            System.err.println("Error clean users table: " + e.getMessage());
         }
     }
 }

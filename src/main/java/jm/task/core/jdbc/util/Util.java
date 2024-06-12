@@ -16,12 +16,17 @@ public class Util {
     private static final String PASSWORD = "kodevuthy#";
     private static SessionFactory sessionFactory;
 
+    private Util() {
+
+    }
+
     public static Connection getJDBCConnection() {
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (SQLException e) {
             e.printStackTrace();
+            System.err.println("Error Connection: " + e.getMessage());
         }
         return connection;
     }
@@ -46,6 +51,7 @@ public class Util {
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
             } catch (Exception e) {
                 e.printStackTrace();
+                System.err.println("Error SessionFactory: " + e.getMessage());
             }
         }
         return sessionFactory;
